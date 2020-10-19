@@ -32,20 +32,4 @@ class HomeController extends Controller
 
        
     }
-
-    public function apiList()
-    {
-        
-        return view('api');
-
-       
-    }
-
-    public function generateReport()
-    {
-        
-        return view('report');
-
-       
-    }
 }

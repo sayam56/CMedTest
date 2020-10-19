@@ -23,8 +23,9 @@ use Illuminate\Support\Facades\Route;
 });
  */
 Route::group(['middleware' => ['web', 'auth']], function(){
-    Route::get('/apiList', [App\Http\Controllers\HomeController::class, 'apiList'])->name('apiList');
-    Route::get('/report', [App\Http\Controllers\HomeController::class, 'generateReport'])->name('report');
+    Route::get('/apiList', [App\Http\Controllers\PrescriptionController::class, 'apiList'])->name('apiList');
+    Route::get('/report', [App\Http\Controllers\PrescriptionController::class, 'generateReport'])->name('report');
+    Route::post('/createPrescription', [App\Http\Controllers\PrescriptionController::class, 'create'])->name('createPrescription');
 });
 
 Auth::routes();

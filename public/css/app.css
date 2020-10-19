@@ -247,6 +247,15 @@
     width: 450px;
   }
 
+  textarea{
+    border: none;
+    outline:none;
+    color: #555;
+    font-size: 18px;
+    background-color: transparent;
+    padding:20px 10px 20px 5px;
+  }
+
   .fields svg {
     height: 22px;
     margin:0 10px -3px 25px;
@@ -354,6 +363,20 @@
   background-color: #259325 ;
 }
 
+.report-div{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+}
+.report-div table{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+}
 
 
 @media screen and (max-width: 991px) {
