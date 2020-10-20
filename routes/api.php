@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Prescription;
+use App\Http\Controllers\PrescriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+
+
+Route::get('/v1/prescription', [App\Http\Controllers\PrescriptionController::class, 'jsonApi']);
+
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
+

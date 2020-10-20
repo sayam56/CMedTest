@@ -168,8 +168,8 @@
     display: flex;
     justify-content: center;
     width: 100vw;
-    height: auto;
-    padding: 20px 35px 35px 35px;
+    height: 95px;
+    padding: 17px 35px 35px 35px;
     border-radius: 40px;
     background: #ecf0f3;
     box-shadow: 13px 13px 20px #cbced1,
@@ -181,9 +181,20 @@
     margin:auto ;
   }
 
+
   .dashboard-table{
     width: 100vw;
-    height: 450px;
+    height: 500px;
+    padding: 20px 35px 35px 35px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+  }
+
+  .dashboard-edit{
+    width: 100vw;
+    height: auto;
     padding: 20px 35px 35px 35px;
     border-radius: 40px;
     background: #ecf0f3;
@@ -228,7 +239,6 @@
     margin-bottom: 15px;
   }
   .fields input {
- 
     border: none;
     outline:none;
     background: none;
@@ -286,6 +296,45 @@
   }
   .signin-button:active {
     background:#1da88a;
+  }
+
+  .filter{
+    display: flex;
+    align-content: flex-end;
+  }
+  .filter form{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    align-content: flex-end;
+    padding: 5px 35px 20px 35px;
+    margin: auto;
+  }
+
+  .filter input{
+    border: none;
+    outline:none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+  }
+
+  .filter-btn{
+    outline: none;
+    border:none;
+    cursor: pointer;
+    width:130px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    color:#fff;
+    text-align: center;
+    background: #24cfaa;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
+    transition: 0.5s;
   }
 
 
@@ -378,6 +427,13 @@
   width: 100%;
 }
 
+td.details-control {
+  background: url('../resources/details_open.png') no-repeat center center;
+  cursor: pointer;
+}
+tr.shown td.details-control {
+  background: url('../resources/details_close.png') no-repeat center center;
+}
 
 @media screen and (max-width: 991px) {
     .neu-navbar .neu-nav-item {
@@ -387,4 +443,10 @@
     .user-input,  .pass-input{
         width: 250px;
       }
+    .table{
+      height: 300px;
+    }
+    .filter form{
+      flex-direction: column;
+    }
 }

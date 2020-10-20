@@ -10,6 +10,7 @@ class Prescription extends Model
 {
     use HasFactory;
 
+    protected $table = "prescriptions";
     protected $fillable = [
         'prescription_date',
         'patient_name',

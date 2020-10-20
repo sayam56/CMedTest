@@ -13,19 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
-
-/* Route::get('/','App\Http\Controllers\MainController@index'); */
-/* Route::group(['middleware' => ['auth']], function () { 
-
-});
- */
 Route::group(['middleware' => ['web', 'auth']], function(){
     Route::get('/apiList', [App\Http\Controllers\PrescriptionController::class, 'apiList'])->name('apiList');
     Route::get('/report', [App\Http\Controllers\PrescriptionController::class, 'generateReport'])->name('report');
     Route::post('/createPrescription', [App\Http\Controllers\PrescriptionController::class, 'create'])->name('createPrescription');
+    Route::post('/filterList', [App\Http\Controllers\PrescriptionController::class, 'filterList'])->name('filterList');
+    Route::post('/updatePrescription', [App\Http\Controllers\PrescriptionController::class, 'update'])->name('updatePrescription');
+    Route::any('/fetchEditItemInfo/{pres_id}', [App\Http\Controllers\PrescriptionController::class, 'fetch']);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
 });
 
 Auth::routes();
@@ -35,9 +31,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::any('/presItemDelete/{pres_id}', [App\Http\Controllers\PrescriptionController::class, 'delete']);
 
 
-
-
-
-/* Route::group(['middleware' => 'auth', 'namespace' => 'user'], function () {
-   
-}); */
