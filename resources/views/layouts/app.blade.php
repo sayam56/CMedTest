@@ -9,6 +9,8 @@
 
     <title>{{  'CMED'  }}</title>
 
+    <link rel="icon" href="{{ asset('icon.ico') }}">
+
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
