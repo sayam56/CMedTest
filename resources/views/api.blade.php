@@ -92,45 +92,54 @@
                   </tfoot>
                   <tbody>
                         @foreach( $array as $row )
-                        <tr>
-                            <td>
-                                <table>
-                                    <td>
-                                        <table>
-                                            <td>rxcui</td>
-                                            <td>name</td>
-                                            <td>tty</td>
-                                        </table>
-                                    </td>
-                                    
-                                    <td>
-                                        <table>
-                                            <td>id</td>
-                                            <td>name</td>
-                                            <td>url</td>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table>
-                                            <td>rxcui</td>
-                                            <td>name</td>
-                                            <td>tty</td>
-                                        </table>
-                                    </td>
-                                    
-                                    <td>
-                                        <table>
-                                            <td>id</td>
-                                            <td>name</td>
-                                            <td>url</td>
-                                        </table>
-                                    </td>
-                                    
-                                </table>
-                            </td>
-                            <td>{{$row->severity}}</td>
-                            <td>{{ $row->description }}</td>
-                        </tr>
+                            @foreach ( $row as $interactionConcept=>$value ) 
+                                <tr>
+                                <td>
+                                    <table>
+                                        <!-- value 0 scope min and source pair -->                                    
+                                            <td>
+                                            @php $minCon= $value[0]->minConceptItem @endphp
+                                                <table>
+                                                    <td> {{$minCon->rxcui}}</td>
+                                                    <td> {{$minCon->name}}</td>
+                                                    <td> {{$minCon->tty}}</td>
+                                                </table>
+                                            </td>
+                                        
+                                        <td>
+                                        @php $sourceCon= $value[0]->sourceConceptItem @endphp
+                                            <table>
+                                                <td>{{$sourceCon->id}}</td>
+                                                <td>{{$sourceCon->name}}</td>
+                                                <td>{{$sourceCon->url}}</td>
+                                            </table>
+                                        </td>
+                                        <!-- value [1] scope min source pair -->
+                                        <td>
+                                        @php $minCon= $value[1]->minConceptItem @endphp
+                                            <table>
+                                                <td> {{$minCon->rxcui}}</td>
+                                                <td> {{$minCon->name}}</td>
+                                                <td> {{$minCon->tty}}</td>
+                                            </table>
+                                        </td>
+                                        
+                                        <td>
+                                        @php $sourceCon= $value[1]->sourceConceptItem @endphp
+                                            <table>
+                                                <td>{{$sourceCon->id}}</td>
+                                                <td>{{$sourceCon->name}}</td>
+                                                <td>{{$sourceCon->url}}</td>
+                                            </table>
+                                        </td>
+                                        
+                                    </table>
+                                </td>
+                                <td>{{$row->severity}}</td>
+                                <td>{{ $row->description }}</td>
+                            </tr>
+                            @break
+                            @endforeach
                         @endforeach
                   </tbody>
                 </table>

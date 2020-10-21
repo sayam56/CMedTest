@@ -89,10 +89,10 @@ class PrescriptionController extends Controller
 
     public function apiList()
     {
-        $json= file_get_contents("https://rxnav.nlm.nih.gov/REST/interaction/interaction.json?rxcui=341248");
+        $json = file_get_contents("https://rxnav.nlm.nih.gov/REST/interaction/interaction.json?rxcui=341248");
         $data =  json_decode($json);
         $array = $data->interactionTypeGroup[0]->interactionType[0]->interactionPair;
-        /* dd($array[0]); */
+        /* dd($array); */
         return view('api',['array'=>$array]);
 
        
