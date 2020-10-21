@@ -51,85 +51,56 @@
                       <th>Description</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th>Interaction Concept
-                            <table>
-                                <th>mincon item
-                                    <table>
-                                        <th>rxcui</th>
-                                        <th>name</th>
-                                        <th>tty</th>
-                                    </table>
-                                </th>
-                                <th>source con item
-                                    <table>
-                                    <th>id</th>
-                                    <th>name</th>
-                                    <th>url</th>
-                                    </table>
-                                </th>
-                        
-                            <th>mincon item
-                                <table>
-                                    <th>rxcui</th>
-                                    <th>name</th>
-                                    <th>tty</th>
-                                </table>
-                            </th>
-                            <th>source con item
-                                <table>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>url</th>
-                                </table>
-                            </th>
-                        </table>
-                        </th>
-                        <th>Severity</th>
-                        <th>Description</th>
-                        </tr>
-                  </tfoot>
+                 
                   <tbody>
-                        @foreach( $array as $row )
-                            @foreach ( $row as $interactionConcept=>$value ) 
-                                <tr>
+                        @foreach( $array as $row ) <!-- this loops the number of elements times -->
+                            @foreach ( $row as $interactionConcept=>$value ) <!-- and for each element we have this value pair -->
+                            @php 
+                            //these are the first minsource pair
+                            $minCon= $value[0]->minConceptItem;
+
+                            $sourceCon= $value[0]->sourceConceptItem;
+
+
+                            //2nd minsoruce pair
+                            $minCon2= $value[1]->minConceptItem;
+
+                            $sourceCon2= $value[1]->sourceConceptItem;
+
+                            @endphp
+                            <tr>
                                 <td>
                                     <table>
                                         <!-- value 0 scope min and source pair -->                                    
-                                            <td>
-                                            @php $minCon= $value[0]->minConceptItem @endphp
-                                                <table>
-                                                    <td> {{$minCon->rxcui}}</td>
-                                                    <td> {{$minCon->name}}</td>
-                                                    <td> {{$minCon->tty}}</td>
-                                                </table>
-                                            </td>
-                                        
                                         <td>
-                                        @php $sourceCon= $value[0]->sourceConceptItem @endphp
-                                            <table>
-                                                <td>{{$sourceCon->id}}</td>
-                                                <td>{{$sourceCon->name}}</td>
-                                                <td>{{$sourceCon->url}}</td>
-                                            </table>
-                                        </td>
-                                        <!-- value [1] scope min source pair -->
-                                        <td>
-                                        @php $minCon= $value[1]->minConceptItem @endphp
                                             <table>
                                                 <td> {{$minCon->rxcui}}</td>
                                                 <td> {{$minCon->name}}</td>
                                                 <td> {{$minCon->tty}}</td>
                                             </table>
                                         </td>
-                                        
                                         <td>
-                                        @php $sourceCon= $value[1]->sourceConceptItem @endphp
                                             <table>
                                                 <td>{{$sourceCon->id}}</td>
                                                 <td>{{$sourceCon->name}}</td>
                                                 <td>{{$sourceCon->url}}</td>
+                                            </table>
+                                        </td>
+
+                                        <!-- value [1] scope min source pair -->
+                                        <td>
+                                            <table>
+                                                <td> {{$minCon2->rxcui}}</td>
+                                                <td> {{$minCon2->name}}</td>
+                                                <td> {{$minCon2->tty}}</td>
+                                            </table>
+                                        </td>
+                                        
+                                        <td>
+                                            <table>
+                                                <td>{{$sourceCon2->id}}</td>
+                                                <td>{{$sourceCon2->name}}</td>
+                                                <td>{{$sourceCon2->url}}</td>
                                             </table>
                                         </td>
                                         
@@ -138,7 +109,8 @@
                                 <td>{{$row->severity}}</td>
                                 <td>{{ $row->description }}</td>
                             </tr>
-                            @break
+                            
+                            @break <!-- so we break out of the inner loop in order to avoid overwriting the values -->
                             @endforeach
                         @endforeach
                   </tbody>

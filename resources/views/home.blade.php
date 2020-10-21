@@ -38,9 +38,9 @@
                 <div class="filter">
                     <form action="{{ route('filterList') }}" method="post">
                     {{ csrf_field() }}
-                        <h6>Start Date: <input type="date" name="start_date" style="margin-right:30px;"> </h6>
+                        <h6>Start Date: <input type="date" name="start_date" required style="margin-right:30px;"> </h6>
                         
-                        <h6>End Date: <input type="date" name="end_date" > </h6>
+                        <h6>End Date: <input type="date" required name="end_date" > </h6>
                         
                         <button type="submit" class="filter-btn" style="margin-left: 30px; margin-top: -10px;">FIlter List</button>
                         
